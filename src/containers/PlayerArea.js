@@ -11,9 +11,9 @@ class PlayerArea extends Component {
   }
 
   render() {
-    // console.log(dice.die1.d6())
     return (
-      <div>
+      <div className="border">
+        <h3>Player {this.props.key} Area </h3>
         <Dice />
       </div>
     );

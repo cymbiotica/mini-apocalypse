@@ -8,7 +8,7 @@ class Dice extends Component {
     this.state = {
       die1: 0,
       die2: 0,
-      result: null
+      result: 0
     };
   }
 
