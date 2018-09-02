@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './styles/index';
+import '../src/styles/index.css';
 import Game from './Game';
 // import registerServiceWorker from './registerServiceWorker';
 
