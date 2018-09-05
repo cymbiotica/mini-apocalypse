@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
-import Dice from "../components/Dice.js";
+// import Dice from "../components/Dice.js";
 import Meeple from "../components/Meeple.js";
+import ReactDice from 'react-dice-complete'
+import "react-dice-complete/dist/react-dice-complete.css";
 
 class PlayerArea extends Component {
   constructor(props) {
@@ -12,43 +14,43 @@ class PlayerArea extends Component {
     };
   }
 
-  // setPlayer = () => {
-  //   if (this.state.isPlayer1) {
-  //     this.setState(prevState =>({ isPlayer1: !prevState.isPlayer1 }))
-  //     return '1'
-  //   } else {
-  //     this.setState(prevState =>({ isPlayer1: !prevState.isPlayer1 }))
-  //     return '2'
-  //   }
-  // };
-
-  // componentDidMount() {
-  //   if (this.state.activePlayer === 1) {
-  //     console.log("first part of if statement :" + this.state.activePlayer)
-  //     this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
-  //   } else {
-  //     console.log("else part of if statement :" + this.state.activePlayer)
-  //     this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
-  //   }
-  // }
   render() {
+    const player1DiceFace = this.faceColor='#0000ff'
+    const player1DiceDot = this.dotColor='#ffff00'
+    const player2DiceFace = this.faceColor='#ffff00'
+    const player2DiceDot =  this.dotColor='#0000ff'
     return (
       <div className="border">
         <h3> Player {this.props.player === 1 ? 1 : 2} Area</h3>
-        <Dice />
-        {
-          this.state.meeples.map((meeple, idx) => {
-            return (
-              <Meeple 
+        <button onClick={this.rollAll}>Roll Dice</button>
+        <ReactDice
+          numDice={2}
+          rollTime={.5}
+          rollDone={this.rollDoneCallback}
+          ref={dice => (this.reactDice = dice)}
+          disableIndividual={true}
+          faceColor={this.props.player === 1 ? player1DiceFace : player2DiceFace}
+          dotColor={this.props.player === 1 ? player1DiceDot : player2DiceDot}
+        />
+        
+        {this.state.meeples.map((meeple, idx) => {
+          return (
+            <Meeple 
               key={idx} 
-              meeple={meeple}
-              player={this.props.player}
-              />
-            )
-          }
-          )}
+              meeple={meeple} 
+              player={this.props.player} />
+          );
+        })}
       </div>
     );
+  }
+
+  rollAll = ()  => {
+    this.reactDice.rollAll();
+  }
+
+  rollDoneCallback(num) {
+    console.log(num)
   }
 }
 
