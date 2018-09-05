@@ -14,13 +14,16 @@ class Dice extends Component {
 
   rollDice = () => {
     const rollDie = new Chance();
-    const die1 = rollDie.d6()
-    const die2 = rollDie.d6()
-    const result = die1 + die2
     this.setState({
-      die1: die1,
-      die2: die2,
-      result: result
+      // this works for the two dice
+      die1: rollDie.d6(),
+      die2: rollDie.d6(),
+
+      // this is always a step behind, so first click will show 0
+      // second click will show result of first click
+      // I have tried this with a function () => {return die1+die2}
+      // that returns either blank or NaN
+      result: this.die1 + this.die2
     });
   };
   render() {
