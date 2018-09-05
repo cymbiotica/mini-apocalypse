@@ -7,7 +7,8 @@ class PlayerArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePlayer: 1
+      activePlayer: 1,
+      meeples: new Array(5).fill(<Meeple />)
     };
   }
 
@@ -21,25 +22,31 @@ class PlayerArea extends Component {
   //   }
   // };
 
-  componentDidMount() {
-    if (this.state.activePlayer === 1) {
-      console.log("first part of if statement :" + this.state.activePlayer)
-      this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
-    } else {
-      console.log("else part of if statement :" + this.state.activePlayer)
-      this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
-    }
-  }
+  // componentDidMount() {
+  //   if (this.state.activePlayer === 1) {
+  //     console.log("first part of if statement :" + this.state.activePlayer)
+  //     this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
+  //   } else {
+  //     console.log("else part of if statement :" + this.state.activePlayer)
+  //     this.setState(prevState =>({ isPlayer1: !prevState.activePlayer }))
+  //   }
+  // }
   render() {
     return (
       <div className="border">
-        <h3> Player {this.state.isPlayer1 ? 1 : 2} Area</h3>
+        <h3> Player {this.props.player === 1 ? 1 : 2} Area</h3>
         <Dice />
-        <Meeple/>
-        <Meeple/>
-        <Meeple/>
-        <Meeple/>
-        <Meeple/>
+        {
+          this.state.meeples.map((meeple, idx) => {
+            return (
+              <Meeple 
+              key={idx} 
+              meeple={meeple}
+              player={this.props.player}
+              />
+            )
+          }
+          )}
       </div>
     );
   }

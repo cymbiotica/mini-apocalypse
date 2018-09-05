@@ -27,15 +27,26 @@
   width: 300px;
 }
 
-.meeple {
+.meeple-player1 {
   display: inline-block;
   width: 50px;
   height: 50px;
   max-width: 50px;
   max-height: 50px;
   background-color: blue;
-  color: antiquewhite;
+  color: rgb(238, 255, 6);
 }
+
+.meeple-player2 {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  background-color: rgb(238, 255, 6);
+  color: blue;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

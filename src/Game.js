@@ -13,8 +13,14 @@ class Game extends Component {
     return (
       <div>
         <Header />
-        <PlayerArea key={1}/>
-        <PlayerArea key={2}/>
+        <PlayerArea 
+          key={1}
+          player={1}
+        />
+        <PlayerArea 
+          key={2}
+          player={2}
+        />
       </div>
     );
   }
