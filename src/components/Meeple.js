@@ -14,9 +14,9 @@ export default class Meeple extends Component {
 
   handleClick = props => {
     switch (this.state.meepleStatus) {
-      case isInShelter:
+      case this.state.isInShelter:
         break;
-      case isCarryingBox:
+      case this.state.isCarryingBox:
         break;
       default:
         break;
