@@ -27,6 +27,11 @@
   width: 300px;
 }
 
+.board {
+  border: 3px yellow solid;
+  width: 300px;
+  height: 300px;
+}
 .meeple-player1 {
   display: inline-block;
   width: 50px;

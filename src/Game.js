@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "../src/styles/App.css";
 import PlayerArea from "./containers/PlayerArea.js";
 import Header from './containers/Header.js'
+import Board from './containers/Board.jsx'
 
 class Game extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Game extends Component {
           key={2}
           player={2}
         />
+        <Board />
       </div>
     );
   }
