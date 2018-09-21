@@ -37,7 +37,11 @@ class PlayerArea extends Component {
 
         {this.state.meeples.map((meeple, idx) => {
           return (
-            <Meeple key={idx} meeple={meeple} player={this.props.player} />
+            <Meeple key={idx} 
+              meeple={meeple} 
+              player={this.props.player} 
+              name={`player${this.props.player}_meeple${idx}`}
+            />
           );
         })}
       </div>

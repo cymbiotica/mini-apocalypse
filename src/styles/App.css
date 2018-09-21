@@ -25,12 +25,14 @@
 .border {
   border: 3px #222 solid;
   width: 300px;
+  margin: 3px;
 }
 
 .board {
   border: 3px rgb(4, 253, 45) solid;
   width: 300px;
   height: 300px;
+  margin: 3px;
 }
 .meeple-player1 {
   border: 1px #222 solid;
@@ -41,6 +43,8 @@
   max-height: 50px;
   background-color: #0000ff;
   color: #ffff00;
+  margin: 3px;
+  text-align: center;
 }
 
 .meeple-player2 {
@@ -52,6 +56,8 @@
   max-height: 50px;
   background-color: #ffff00;
   color: #0000ff;
+  margin: 3px;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {

@@ -23,10 +23,18 @@ export default class Meeple extends Component {
     }
   };
 
+
+  onDragStart = (e, mName) => {
+    console.log('dragstart:',mName);
+    e.dataTransfer.setData('name', mName)
+  }
+
+
   render() {
     return (
       <div
-        onClick={this.handleClick}
+        draggable
+        onDragStart = { (e) => this.onDragStart(e, this.props.name) }
         className={
           this.props.player === 1 ? "meeple-player1" : "meeple-player2"
         }
