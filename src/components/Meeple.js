@@ -26,6 +26,7 @@ export default class Meeple extends Component {
 
   onDragStart = (e, mName) => {
     console.log('dragstart:',mName);
+    e.dataTransfer.dropEffect = "move"
     e.dataTransfer.setData('name', mName)
   }
 
@@ -35,6 +36,7 @@ export default class Meeple extends Component {
       <div
         draggable
         onDragStart = { (e) => this.onDragStart(e, this.props.name) }
+        name = {this.props.name}
         className={
           this.props.player === 1 ? "meeple-player1" : "meeple-player2"
         }

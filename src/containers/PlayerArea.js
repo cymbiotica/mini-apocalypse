@@ -10,10 +10,17 @@ class PlayerArea extends Component {
     super(props);
     this.state = {
       activePlayer: 1,
-      meeples: new Array(5).fill(<Meeple />)
+      meeples: []
+      // this doesnt work as expected new Array(5).fill(<Meeple />) 
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      meeples: new Array(5).fill(<Meeple />)
+    })
+  }
   render() {
     const player1DiceFace = (this.faceColor = "#0000ff");
     const player1DiceDot = (this.dotColor = "#ffff00");

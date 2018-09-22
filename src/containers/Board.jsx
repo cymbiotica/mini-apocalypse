@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Meeple from "../components/Meeple.js";
+
 class Board extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,9 @@ class Board extends Component {
         onDragOver={e => this.onDragOver(e)}
       >
         <h3>Board</h3>
-        {this.state.meeples}
+        {this.state.meeples.map(meeple => {
+          return <Meeple name={this.props.name}/>
+        })}
       </div>
     );
   }
